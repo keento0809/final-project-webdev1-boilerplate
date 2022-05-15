@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fafafa;
+}
+body.darkMode {
+  background: #222d37;
+  color: #fafafa;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input,
+select {
+  outline: none;
+  border: none;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: block;
+}
+
+h1,
+h3,
+p {
+  margin: 0;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 60px;
+  background: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav.darkMode {
+  background: #222d37;
+}
+.nav__container {
+  flex-grow: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.container {
+  padding-top: 60px;
+}
+
+.wrapper {
+  padding: 0 20px;
+}
+
+.countries__searchSection {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+}
+.countries__searchInput {
+  padding: 1.5rem 3rem;
+  margin-bottom: 2rem;
+}
+.countries__searchDropdown {
+  padding: 1.5rem 3rem;
+  font-size: 16px;
+  box-shadow: 0 2px 9px 3px #efefef;
+}
+.countries__countryCard {
+  max-width: 320px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 9px 3px #efefef;
+}
+.countries__countryCard.darkMode {
+  color: #222d37;
+  box-shadow: 0 2px 9px 3px #333;
+}
+.countries__countryCardDiv {
+  padding: 2rem;
+}
+.countries__countryCardDiv h3 {
+  padding-bottom: 2rem;
+}
+.countries__countryCardDiv p {
+  padding-bottom: 0.5rem;
+}
+.countries__countryName {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.countries__countryName ion-icon {
+  font-size: 24px;
+}
+.countries__countryCardData {
+  color: #787878;
+}/*# sourceMappingURL=index.css.map */

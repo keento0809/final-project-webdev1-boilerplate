@@ -1,0 +1,149 @@
+$baseColorDarkMode: #222d37;
+$baseColorLightMode: #fafafa;
+$colorWhite: #fff;
+$colorGray: #787878;
+
+$baseInputPadding: 1.5rem 3rem;
+$baseBoxShadow: 0 2px 9px 3px #efefef;
+$baseBoxShadowDarkMode: 0 2px 9px 3px #333;
+
+@mixin centralize {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: $baseColorLightMode;
+  &.darkMode {
+    background: $baseColorDarkMode;
+    color: $baseColorLightMode;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input,
+select {
+  outline: none;
+  border: none;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: block;
+}
+
+h1,
+h3,
+p {
+  margin: 0;
+}
+
+// nav
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 60px;
+  background: $baseColorLightMode;
+  @include centralize;
+
+  &.darkMode {
+    background: $baseColorDarkMode;
+  }
+
+  &__container {
+    flex-grow: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+}
+
+// main
+
+.container {
+  padding-top: 60px;
+}
+.wrapper {
+  padding: 0 20px;
+}
+
+.countries {
+  &__searchSection {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0;
+  }
+
+  &__searchInput {
+    padding: $baseInputPadding;
+    margin-bottom: 2rem;
+  }
+
+  &__searchDropdown {
+    padding: $baseInputPadding;
+    font-size: 16px;
+    box-shadow: $baseBoxShadow;
+  }
+
+  &__countryCard {
+    max-width: 320px;
+    margin: 0 auto;
+    background: $colorWhite;
+    border-radius: 8px;
+    box-shadow: $baseBoxShadow;
+
+    &.darkMode {
+      color: $baseColorDarkMode;
+      box-shadow: $baseBoxShadowDarkMode;
+    }
+  }
+
+  &__countryCardDiv {
+    padding: 2rem;
+
+    & h3 {
+      padding-bottom: 2rem;
+    }
+
+    & p {
+      padding-bottom: 0.5rem;
+    }
+  }
+
+  &__countryName {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    & ion-icon {
+      font-size: 24px;
+    }
+  }
+
+  &__countryCardData {
+    color: $colorGray;
+  }
+}

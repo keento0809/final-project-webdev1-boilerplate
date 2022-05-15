@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./static/css/index.css">
-</head>
-<body>
-    <nav>
-        <a href="/" class="nav__link" data-link>Home</a>
+    <link rel="stylesheet" href="./static/css/index.css" />
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav__container">
+        <a href="/" class="nav__link" id="linkToHome" data-link>Home</a>
         <a href="/countries" class="nav__link" data-link>Countries</a>
+      </div>
     </nav>
     <div id="app"></div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
     <script type="module" src="/static/js/countries.js"></script>
     <script type="module" src="/static/js/router.js"></script>
     <script type="module" src="/static/js/index.js"></script>
-</body>
+    <!-- <script type="module" src="/static/js/main.js"></script>s -->
+  </body>
 </html>
