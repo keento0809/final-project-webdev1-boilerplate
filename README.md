@@ -21,7 +21,33 @@ Your users should be able to:
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode _(optional)_
 
+PS: This is a boilerplate, which means that the backend is already done. Don't worry about it!
+PS 2: Also, the connection with the API, is also covered.
+PS 3: DON'T TOUCH THESE FILES: `router.js` OR THE `server.js`
+
 ## Where to find everything
+
+Check the design folder to understand what it is being asked for.
+
+Homepage - `localhost:3000/` - It should be just a Hero page. Search for it and get some references.
+It is not included in the design images but I am sure you can think in something AWESOME!
+
+Countries - `localhost:300/countries` - It shows the whole list of countries, where users can filter by name using the input on the left or by region, using the dropdown on the right. Feel free to add a filter section for an extra challenge.
+
+Country - `localhost:3000/countries/:id` - When one of the countries' card is clicked, it should redirect the user to the country's page, where is possible to see more information. Don't forget to add the border countries as buttons and redirect to their's page if clicked.
+Also, it should have a button to go back to countries' page. Use `cca3` as the `id` of the country.
+
+### Where should I add the HTML?
+
+In the `views` folder, `Countries.js`, `Homepage.js` and `CountryView.js` have a `getHTML()` function, where returns the html for each page.
+
+### Where should I add the CSS?
+
+Create new `.scss` files to compile the `.css` file. It is located in the `frontend/static/css` folder.
+
+### Where should I add the JS?
+
+Use only the `index.js` file. DON'T TOUCH THE `router.js` or the `server.js`. If you really think that something in these files need to be changed, please ask for help before any changes.
 
 Your task is to build out the project to the designs inside the `/design` folder.
 

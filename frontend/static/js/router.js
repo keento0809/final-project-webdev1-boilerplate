@@ -1,17 +1,14 @@
 import Homepage from './views/Homepage.js';
 import CountryView from './views/CountryView.js';
 import Countries from './views/Countries.js';
+import {getCountries} from './countries.js'
 
 
 const pathToRegex = path => new RegExp("^" + path.replace(/\//g, "\\/").replace(/:\w+/g, "(.+)") + "$");
 
 const getParams = match => {
-    console.log("match",match);
     const values = match.result.slice(1);
-    console.log("values",values)
     const keys = Array.from(match.route.path.matchAll(/:(\w+)/g)).map(result => result[1]);
-
-    console.log(Array.from(match.route.path.matchAll(/:(\w+)/g)));
 
     return Object.fromEntries(keys.map((key, i) => {
         return [key, values[i]];
@@ -24,7 +21,6 @@ const navigateTo = url => {
 }
 
 const router = async () => {
-    console.log(pathToRegex("/posts/:code"))
     const routes = [
         {path: '/', view: Homepage},
         {path: '/countries', view: Countries},
@@ -41,18 +37,31 @@ const router = async () => {
 
     let match = potentialMatches.find(potentialMatch => potentialMatch.result !== null);
 
+    const countries = getCountries();
+    const params = getParams(match)
+
+    
+    
     if(!match) {
         match = {
             route: routes[0],
             result: [location.pathname]
         }
+    } else if(match.route.path === "/countries/:id"){
+        let found = false;
+        for(let country of countries){
+            const cca3 = country.cca3.toLowerCase();
+            const paramsId = params.id.toLowerCase(); 
+            if(cca3 === paramsId){
+                found = true;
+             } 
+        }
+        !found && (match = {route: routes[0], result:[location.pathname]})
     }
 
-    const view = new match.route.view(getParams(match));
+    const view = new match.route.view(params);
 
     document.querySelector("#app").innerHTML = await view.getHTML();
-
-    // console.log(match.route.view());
 
 }
 
