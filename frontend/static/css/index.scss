@@ -52,6 +52,7 @@ li {
 }
 
 h1,
+h2,
 h3,
 p {
   margin: 0;
@@ -66,6 +67,7 @@ p {
   min-height: 60px;
   background: $baseColorLightMode;
   @include centralize;
+  // z-index: 10;
 
   &.darkMode {
     background: $baseColorDarkMode;
@@ -145,5 +147,52 @@ p {
 
   &__countryCardData {
     color: $colorGray;
+  }
+}
+
+// homepage
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url("../assets/greg-rosenke-3ULMRQZ5APA-unsplash.jpg");
+  background-size: cover;
+  background-position: 25% 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10rem;
+}
+
+.homepage {
+  padding: 4rem 2rem;
+  letter-spacing: -0.5px;
+  border-radius: 8px;
+  background: rgb(255 242 242 / 40%);
+
+  &__overlayTitle {
+    font-size: 28px;
+    line-height: 40px;
+    padding-bottom: 0.2rem;
+    text-shadow: 1px 2px 4px #808080;
+  }
+
+  &__description {
+    padding-bottom: 2rem;
+    text-shadow: 1px 2px 4px #808080;
+  }
+
+  &__startBtn {
+    // background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    padding: 0.6rem 2rem;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 3px 6px #fff;
   }
 }

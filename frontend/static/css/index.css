@@ -31,6 +31,7 @@ li {
 }
 
 h1,
+h2,
 h3,
 p {
   margin: 0;
@@ -111,4 +112,46 @@ p {
 }
 .countries__countryCardData {
   color: #787878;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url("../assets/greg-rosenke-3ULMRQZ5APA-unsplash.jpg");
+  background-size: cover;
+  background-position: 25% 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10rem;
+}
+
+.homepage {
+  padding: 4rem 2rem;
+  letter-spacing: -0.5px;
+  border-radius: 8px;
+  background: rgba(255, 242, 242, 0.4);
+}
+.homepage__overlayTitle {
+  font-size: 28px;
+  line-height: 40px;
+  padding-bottom: 0.2rem;
+  text-shadow: 1px 2px 4px #808080;
+}
+.homepage__description {
+  padding-bottom: 2rem;
+  text-shadow: 1px 2px 4px #808080;
+}
+.homepage__startBtn {
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  padding: 0.6rem 2rem;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 3px 6px #fff;
 }/*# sourceMappingURL=index.css.map */

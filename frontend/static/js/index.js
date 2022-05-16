@@ -4,16 +4,24 @@ export const countries = getCountries();
 
 console.log(countries);
 
-// Get DOM
-const body = document.querySelector("body");
-const nav = document.querySelector(".nav");
-const linkToHome = document.querySelector("#linkToHome");
-console.log(linkToHome);
+window.addEventListener("DOMContentLoaded", (event) => {
+  console.log("DOM fully loaded and parsed");
 
-function handleToggleMode() {
-  body.classList.toggle("darkMode");
-  nav.classList.toggle("darkMode");
-}
+  // Get DOM
+  const body = document.querySelector("body");
+  const nav = document.querySelector(".nav");
+  const linkToHome = document.querySelector("#linkToHome");
 
-// Hook up the event
-linkToHome.addEventListener("click", handleToggleMode);
+  const searchInput = document.querySelector(".inputAttribute");
+  searchInput.addEventListener("keypress", function (e) {
+    console.log(e.target.value);
+  });
+
+  function handleToggleMode() {
+    body.classList.toggle("darkMode");
+    nav.classList.toggle("darkMode");
+  }
+
+  // Hook up the event
+  linkToHome.addEventListener("click", handleToggleMode);
+});

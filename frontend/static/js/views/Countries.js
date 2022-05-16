@@ -66,23 +66,49 @@ export default class extends AbstractView {
     console.log(countryList);
 
     // create searchInput
-    const searchInput = document.createElement("div");
-    searchInput.classList.add("inputAttribute");
-    searchInput.innerHTML = `
-    <input type="text" class="countries__searchInput" placeHolder="Search for a country..." />
-    `;
+    const searchDiv = document.createElement("div");
+    const searchInput = document.createElement("input");
+    searchDiv.append(searchInput);
+    searchInput.classList.add("inputAttribute", "countries__searchInput");
+    searchInput.setAttribute("type", "text");
+    searchInput.setAttribute("placeHolder", "Search for a country...");
 
     // create selectRegion tag
     const selectTag = document.createElement("div");
     selectTag.innerHTML = `
-    <select id="selectRegion" type="" class="countries__searchDropdown">
-    <option class='countries__selectOption'>Filter by region</option>
-    ${options}
-  </select>
-    `;
+            <select id="selectRegion" type="" class="countries__searchDropdown">
+              <option class='countries__selectOption'>Filter by region</option>
+              ${options}
+            </select>`;
 
-    const aa = document.querySelector("#selectRegion");
-    console.log(aa);
+    // Hook up the event
+    window.addEventListener("DOMContentLoaded", (event) => {
+      console.log(searchInput);
+      searchDiv.addEventListener("click", function (e) {
+        console.log("JIJIJIJIJI");
+      });
+    });
+
+    // searchInput.innerHTML = `
+    // <input type="text" class="countries__searchInput" placeHolder="Search for a country..." />
+    // `;
+
+    // function handleChange(e) {
+    //   console.log("JIJIJIJIJI");
+    //   console.log(e.target.value);
+    // }
+
+    // searchInput.addEventListener("mouseup", handleChange);
+
+    // create selectRegion tag
+    //   const selectTag = document.createElement("div");
+    //   selectTag.innerHTML = `
+    //   <select id="selectRegion" type="" class="countries__searchDropdown">
+    //   <option class='countries__selectOption'>Filter by region</option>
+    //   ${options}
+    // </select>
+    //   `;
+
     // original
     // <input type="text" class="countries__searchInput" placeHolder="Search for a country..." />
     // <select id="selectRegion" type="" class="countries__searchDropdown">
@@ -94,7 +120,7 @@ export default class extends AbstractView {
     return `<div class="container">
     <div class="wrapper">
     <section class="countries__searchSection">
-    ${searchInput.innerHTML}
+    ${searchDiv.innerHTML}
     ${selectTag.innerHTML}
     </section>
     <section class="countries__countryListSection">
