@@ -2,10 +2,13 @@ $baseColorDarkMode: #222d37;
 $baseColorLightMode: #fafafa;
 $colorWhite: #fff;
 $colorGray: #787878;
+$colorGrayDarkMode: #888;
+$colorCountryCardDarkMode: #dadada;
 
 $baseInputPadding: 1.5rem 3rem;
 $baseBoxShadow: 0 2px 9px 3px #efefef;
-$baseBoxShadowDarkMode: 0 2px 9px 3px #333;
+$baseBoxShadowDarkMode: 0 2px 9px 3px #161e27;
+// box-shadow: 0 2px 9px 3px #161e27
 
 @mixin centralize {
   display: flex;
@@ -111,12 +114,17 @@ p {
   &__searchInput {
     padding: $baseInputPadding;
     margin-bottom: 2rem;
+    box-shadow: $baseBoxShadow;
   }
 
   &__searchDropdown {
     padding: $baseInputPadding;
     font-size: 16px;
     box-shadow: $baseBoxShadow;
+
+    &.darkMode {
+      box-shadow: $baseBoxShadowDarkMode;
+    }
   }
 
   &__countryCard {
@@ -126,6 +134,12 @@ p {
     background: $colorWhite;
     border-radius: 8px;
     box-shadow: $baseBoxShadow;
+
+    &.darkMode {
+      background: $baseColorDarkMode;
+      color: $colorCountryCardDarkMode;
+      box-shadow: $baseBoxShadowDarkMode;
+    }
 
     &__imageContainer {
       vertical-align: bottom;
@@ -142,10 +156,10 @@ p {
       object-fit: cover;
     }
 
-    &.darkMode {
-      color: $baseColorDarkMode;
-      box-shadow: $baseBoxShadowDarkMode;
-    }
+    // &.darkMode {
+    //   color: $baseColorDarkMode;
+    //   box-shadow: $baseBoxShadowDarkMode;
+    // }
   }
 
   &__countryCardDiv {
@@ -172,7 +186,27 @@ p {
   }
 
   &__countryCardData {
+    display: inline-block;
     color: $colorGray;
+    padding-left: 0.1rem;
+  }
+}
+
+.countries__searchSection.darkMode {
+  & .countries__searchInput {
+    box-shadow: $baseBoxShadowDarkMode;
+    background: $baseColorDarkMode;
+    color: $colorCountryCardDarkMode;
+
+    &::placeholder {
+      color: $colorCountryCardDarkMode;
+    }
+  }
+
+  & .countries__searchDropdown {
+    box-shadow: $baseBoxShadowDarkMode;
+    background: $baseColorDarkMode;
+    color: $colorCountryCardDarkMode;
   }
 }
 

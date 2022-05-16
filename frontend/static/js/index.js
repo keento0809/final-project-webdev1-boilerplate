@@ -43,7 +43,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
   // Get DOM
   const body = document.querySelector("body");
   const nav = document.querySelector(".nav");
-  const linkToHome = document.querySelector("#linkToHome");
+  const countriesSearchSec = document.querySelector(
+    ".countries__searchSection"
+  );
+  const countryCards = document.querySelectorAll(".countries__countryCard");
 
   const toggleIcon = document.querySelector("#toggleIcon");
   const searchInput = document.querySelector(".inputAttribute");
@@ -75,6 +78,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
   function handleToggleMode() {
     body.classList.toggle("darkMode");
     nav.classList.toggle("darkMode");
+    countriesSearchSec.classList.toggle("darkMode");
+    countryCards.forEach((card) => card.classList.toggle("darkMode"));
   }
 
   toggleIcon.addEventListener("click", handleToggleMode);

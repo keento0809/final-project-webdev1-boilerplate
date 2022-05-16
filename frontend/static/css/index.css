@@ -83,11 +83,15 @@ p {
 .countries__searchInput {
   padding: 1.5rem 3rem;
   margin-bottom: 2rem;
+  box-shadow: 0 2px 9px 3px #efefef;
 }
 .countries__searchDropdown {
   padding: 1.5rem 3rem;
   font-size: 16px;
   box-shadow: 0 2px 9px 3px #efefef;
+}
+.countries__searchDropdown.darkMode {
+  box-shadow: 0 2px 9px 3px #161e27;
 }
 .countries__countryCard {
   max-width: 280px;
@@ -95,6 +99,11 @@ p {
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 9px 3px #efefef;
+}
+.countries__countryCard.darkMode {
+  background: #222d37;
+  color: #dadada;
+  box-shadow: 0 2px 9px 3px #161e27;
 }
 .countries__countryCard__imageContainer {
   vertical-align: bottom;
@@ -109,10 +118,6 @@ p {
   height: 160px;
   -o-object-fit: cover;
      object-fit: cover;
-}
-.countries__countryCard.darkMode {
-  color: #222d37;
-  box-shadow: 0 2px 9px 3px #333;
 }
 .countries__countryCardDiv {
   padding: 2rem;
@@ -133,7 +138,29 @@ p {
   font-size: 24px;
 }
 .countries__countryCardData {
+  display: inline-block;
   color: #787878;
+  padding-left: 0.1rem;
+}
+
+.countries__searchSection.darkMode .countries__searchInput {
+  box-shadow: 0 2px 9px 3px #161e27;
+  background: #222d37;
+  color: #dadada;
+}
+.countries__searchSection.darkMode .countries__searchInput::-moz-placeholder {
+  color: #dadada;
+}
+.countries__searchSection.darkMode .countries__searchInput:-ms-input-placeholder {
+  color: #dadada;
+}
+.countries__searchSection.darkMode .countries__searchInput::placeholder {
+  color: #dadada;
+}
+.countries__searchSection.darkMode .countries__searchDropdown {
+  box-shadow: 0 2px 9px 3px #161e27;
+  background: #222d37;
+  color: #dadada;
 }
 
 .backdrop {
