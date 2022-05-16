@@ -45,6 +45,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const nav = document.querySelector(".nav");
   const linkToHome = document.querySelector("#linkToHome");
 
+  const toggleIcon = document.querySelector("#toggleIcon");
   const searchInput = document.querySelector(".inputAttribute");
   const regionSelect = document.querySelector(".regionSelect");
 
@@ -71,10 +72,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
     return updateLoadedData;
   });
 
-  // function handleToggleMode() {
-  //   body.classList.toggle("darkMode");
-  //   nav.classList.toggle("darkMode");
-  // }
+  function handleToggleMode() {
+    body.classList.toggle("darkMode");
+    nav.classList.toggle("darkMode");
+  }
 
-  // linkToHome.addEventListener("click", handleToggleMode);
+  toggleIcon.addEventListener("click", handleToggleMode);
 });

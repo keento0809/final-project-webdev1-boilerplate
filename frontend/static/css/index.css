@@ -48,6 +48,9 @@ p {
   justify-content: center;
   align-items: center;
 }
+.nav__link {
+  font-weight: bold;
+}
 .nav.darkMode {
   background: #222d37;
 }
@@ -57,6 +60,11 @@ p {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+}
+.nav__right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .container {
@@ -82,15 +90,25 @@ p {
   box-shadow: 0 2px 9px 3px #efefef;
 }
 .countries__countryCard {
-  max-width: 320px;
+  max-width: 280px;
   margin: 3rem auto;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 9px 3px #efefef;
 }
+.countries__countryCard__imageContainer {
+  vertical-align: bottom;
+  width: 280px;
+  height: 160px;
+}
 .countries__countryCard img {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  vertical-align: bottom;
+  width: 280px;
+  height: 160px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .countries__countryCard.darkMode {
   color: #222d37;
@@ -166,7 +184,41 @@ p {
 }
 
 /* media query */
-@media screen and (min-width: 1023px) {
+@media screen and (min-width: 1300px) {
+  .wrapper {
+    padding: 0 64px;
+  }
+
+  .nav__container {
+    padding: 0 64px;
+  }
+
+  .countries__searchSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .countries__searchInput {
+    margin-bottom: 0;
+    min-width: 500px;
+    min-height: 68px;
+  }
+  .countries__countryListSection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .countries__countryCard {
+    margin: 2.3rem 0;
+    flex-basis: auto;
+  }
+  .countries__countryCardDiv h3 {
+    padding-bottom: 0;
+    min-height: 70px;
+  }
+
   .backdrop {
     background-position: 40% 50%;
     padding-bottom: 0;

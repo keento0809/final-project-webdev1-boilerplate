@@ -48,8 +48,8 @@ export default class extends AbstractView {
       <p><strong>Population:</strong> <span class="countries__countryCardData">${country.population}</span></p>
       <p><strong>Region:</strong> <span class="countries__countryCardData">${country.region}</span></p>
       <p><strong>Capital:</strong> <span class="countries__countryCardData">${country.capital}</span></p>
-      </a>
       </div>
+      </a>
         </li>`;
     });
 
