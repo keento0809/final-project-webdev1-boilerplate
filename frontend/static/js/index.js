@@ -2,9 +2,18 @@ import { getCountries } from "./countries.js";
 
 export const countries = getCountries();
 
+console.log(countries);
+
 export let inputValue = "";
 
 export let updateLoadedData = "aa";
+
+// function testFunc(arr) {
+//   console.log(arr[0]);
+//   return arr;
+// }
+
+// export const resultArr = testFunc(arr);
 
 window.addEventListener("DOMContentLoaded", (event) => {
   console.log("DOM fully loaded and parsed");
@@ -20,6 +29,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     }
 
     loadedData.push({
+      cca3: countries[key].cca3,
       name: countries[key].name.common,
       population: countries[key].population,
       region: countries[key].region,
@@ -37,22 +47,34 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   const searchInput = document.querySelector(".inputAttribute");
   const regionSelect = document.querySelector(".regionSelect");
-  console.log(searchInput);
-  console.log(regionSelect);
 
+  // original code
   searchInput.addEventListener("keypress", function (e) {
     inputValue = e.target.value;
     updateLoadedData = loadedData.filter((country) => {
       return country.name.toLowerCase().includes(inputValue);
     });
     console.log(updateLoadedData);
+    // testFunc(updateLoadedData);
+    return updateLoadedData;
   });
 
-  function handleToggleMode() {
-    body.classList.toggle("darkMode");
-    nav.classList.toggle("darkMode");
-  }
+  // original code
+  regionSelect.addEventListener("change", function (e) {
+    const selectedValue = e.target.value;
+    console.log(e.target.value);
 
-  // Hook up the event
-  linkToHome.addEventListener("click", handleToggleMode);
+    updateLoadedData = loadedData.filter((country) => {
+      return country.region === selectedValue;
+    });
+    console.log(updateLoadedData);
+    return updateLoadedData;
+  });
+
+  // function handleToggleMode() {
+  //   body.classList.toggle("darkMode");
+  //   nav.classList.toggle("darkMode");
+  // }
+
+  // linkToHome.addEventListener("click", handleToggleMode);
 });

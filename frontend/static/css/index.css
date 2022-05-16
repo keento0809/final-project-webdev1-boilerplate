@@ -157,5 +157,33 @@ p {
   padding: 0.6rem 2rem;
   font-weight: bold;
   font-size: 16px;
+  background: #6fffff;
   box-shadow: 0 3px 6px #fff;
+  transition: all 0.3s ease;
+}
+.homepage__startBtn:hover {
+  transform: scale(1.1);
+}
+
+/* media query */
+@media screen and (min-width: 1023px) {
+  .backdrop {
+    background-position: 40% 50%;
+    padding-bottom: 0;
+  }
+
+  .homepage {
+    padding: 6rem;
+    background: rgba(255, 242, 242, 0.7);
+    text-align: center;
+  }
+  .homepage__overlayTitle {
+    font-size: 40px;
+    line-height: 44px;
+  }
+  .homepage__description {
+    padding-top: 0.5rem;
+    padding-bottom: 2.5rem;
+    font-size: 20px;
+  }
 }/*# sourceMappingURL=index.css.map */

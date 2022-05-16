@@ -1,15 +1,12 @@
 import AbstractView from "./AbstractView.js";
 import { countries, inputValue, updateLoadedData } from "../index.js";
 
-console.log(updateLoadedData);
-
 export default class extends AbstractView {
   constructor(params) {
     super(params);
     this.setTitle("Countries");
   }
 
-  // <ion-icon name="search-outline"></ion-icon>
   async getHTML() {
     const loadedData = [];
     const regions = [];
@@ -22,6 +19,7 @@ export default class extends AbstractView {
       }
 
       loadedData.push({
+        cca3: countries[key].cca3,
         name: countries[key].name.common,
         population: countries[key].population,
         region: countries[key].region,
@@ -29,22 +27,19 @@ export default class extends AbstractView {
         flagImg: countries[key].flags.png,
       });
     }
-    // console.log(loadedData);
-    // console.log(regions);
 
     const options = regions.map((region) => {
       return `
-        <option class='countries__selectOption'>
+        <option class='countries__selectOption' value=${region}>
           ${region}
         </option>
       `;
     });
 
-    // <ion-icon name="heart-outline"></ion-icon>
     // display data(original)
     let testLi = loadedData.map((country) => {
       return `<li class=countries__countryCard>
-      <a href="">
+      <a href=/countries/${country.cca3}>
       <img src=${country.flagImg} alt="flag" />
       <div class="countries__countryCardDiv">
       <div class="countries__countryName">
@@ -86,45 +81,6 @@ export default class extends AbstractView {
               ${options}
             `;
 
-    //             <select id="selectRegion" type="" class="countries__searchDropdown"></select>
-    //
-
-    // Hook up the event
-    window.addEventListener("DOMContentLoaded", (event) => {
-      // console.log(searchInput);
-      searchInput.addEventListener("click", function (e) {
-        console.log("JIJIJIJIJI");
-      });
-    });
-
-    // searchInput.innerHTML = `
-    // <input type="text" class="countries__searchInput" placeHolder="Search for a country..." />
-    // `;
-
-    // function handleChange(e) {
-    //   console.log("JIJIJIJIJI");
-    //   console.log(e.target.value);
-    // }
-
-    // searchInput.addEventListener("mouseup", handleChange);
-
-    // create selectRegion tag
-    //   const selectTag = document.createElement("div");
-    //   selectTag.innerHTML = `
-    //   <select id="selectRegion" type="" class="countries__searchDropdown">
-    //   <option class='countries__selectOption'>Filter by region</option>
-    //   ${options}
-    // </select>
-    //   `;
-
-    // original
-    // <input type="text" class="countries__searchInput" placeHolder="Search for a country..." />
-    // <select id="selectRegion" type="" class="countries__searchDropdown">
-    //   <option class='countries__selectOption'>Filter by region</option>
-    //   ${options}
-    // </select>
-
-    // console.log(this.params);
     return `<div class="container">
     <div class="wrapper">
     <section class="countries__searchSection">
@@ -137,8 +93,4 @@ export default class extends AbstractView {
     </div>
     </div>`;
   }
-}
-
-{
-  /* <h1>Countries</h1> */
 }

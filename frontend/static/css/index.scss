@@ -190,7 +190,6 @@ p {
   }
 
   &__startBtn {
-    // background-color: transparent;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -198,6 +197,37 @@ p {
     padding: 0.6rem 2rem;
     font-weight: bold;
     font-size: 16px;
+    background: #6fffff;
     box-shadow: 0 3px 6px #fff;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+/* media query */
+@media screen and (min-width: 1023px) {
+  .backdrop {
+    background-position: 40% 50%;
+    padding-bottom: 0;
+  }
+
+  .homepage {
+    padding: 6rem;
+    background: rgb(255 242 242 / 70%);
+    text-align: center;
+
+    &__overlayTitle {
+      font-size: 40px;
+      line-height: 44px;
+    }
+
+    &__description {
+      padding-top: 0.5rem;
+      padding-bottom: 2.5rem;
+      font-size: 20px;
+    }
   }
 }
