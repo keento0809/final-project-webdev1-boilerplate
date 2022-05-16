@@ -1,5 +1,7 @@
 import AbstractView from "./AbstractView.js";
-import { countries } from "../index.js";
+import { countries, inputValue, updateLoadedData } from "../index.js";
+
+console.log(updateLoadedData);
 
 export default class extends AbstractView {
   constructor(params) {
@@ -27,8 +29,8 @@ export default class extends AbstractView {
         flagImg: countries[key].flags.png,
       });
     }
-    console.log(loadedData);
-    console.log(regions);
+    // console.log(loadedData);
+    // console.log(regions);
 
     const options = regions.map((region) => {
       return `
@@ -39,7 +41,7 @@ export default class extends AbstractView {
     });
 
     // <ion-icon name="heart-outline"></ion-icon>
-    // display data
+    // display data(original)
     let testLi = loadedData.map((country) => {
       return `<li class=countries__countryCard>
       <a href="">
@@ -55,6 +57,7 @@ export default class extends AbstractView {
       </div>
         </li>`;
     });
+
     // sorted by alphabetical order
     testLi.sort((a, b) => {
       return a < b ? -1 : 1;
@@ -74,17 +77,22 @@ export default class extends AbstractView {
     searchInput.setAttribute("placeHolder", "Search for a country...");
 
     // create selectRegion tag
-    const selectTag = document.createElement("div");
+    const selectTagDiv = document.createElement("div");
+    const selectTag = document.createElement("select");
+    selectTagDiv.append(selectTag);
+    selectTag.classList.add("regionSelect", "countries__searchDropdown");
     selectTag.innerHTML = `
-            <select id="selectRegion" type="" class="countries__searchDropdown">
               <option class='countries__selectOption'>Filter by region</option>
               ${options}
-            </select>`;
+            `;
+
+    //             <select id="selectRegion" type="" class="countries__searchDropdown"></select>
+    //
 
     // Hook up the event
     window.addEventListener("DOMContentLoaded", (event) => {
-      console.log(searchInput);
-      searchDiv.addEventListener("click", function (e) {
+      // console.log(searchInput);
+      searchInput.addEventListener("click", function (e) {
         console.log("JIJIJIJIJI");
       });
     });
@@ -116,15 +124,15 @@ export default class extends AbstractView {
     //   ${options}
     // </select>
 
-    console.log(this.params);
+    // console.log(this.params);
     return `<div class="container">
     <div class="wrapper">
     <section class="countries__searchSection">
     ${searchDiv.innerHTML}
-    ${selectTag.innerHTML}
+    ${selectTagDiv.innerHTML}
     </section>
     <section class="countries__countryListSection">
-      ${testLi}
+      ${testLi.join("")}
     </section>
     </div>
     </div>`;
