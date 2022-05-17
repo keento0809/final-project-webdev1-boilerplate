@@ -215,6 +215,14 @@ p {
   }
 }
 
+.countries__countryListSection.darkMode {
+  & .countries__countryCard {
+    box-shadow: $baseBoxShadowDarkMode;
+    background: $baseColorDarkMode;
+    color: $colorCountryCardDarkMode;
+  }
+}
+
 // homepage
 .backdrop {
   position: fixed;
@@ -373,5 +381,5 @@ p {
 // try
 .view {
   padding-top: 100px;
-  // background: red;
+  background: red;
 }

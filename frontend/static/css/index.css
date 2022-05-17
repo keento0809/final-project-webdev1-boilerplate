@@ -168,6 +168,12 @@ p {
   color: #dadada;
 }
 
+.countries__countryListSection.darkMode .countries__countryCard {
+  box-shadow: 0 2px 9px 3px #161e27;
+  background: #222d37;
+  color: #dadada;
+}
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -303,4 +309,5 @@ p {
 }
 .view {
   padding-top: 100px;
+  background: red;
 }/*# sourceMappingURL=index.css.map */
