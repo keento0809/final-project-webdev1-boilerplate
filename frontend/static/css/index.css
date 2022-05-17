@@ -140,6 +140,7 @@ p {
 }
 .countries__countryName ion-icon {
   font-size: 24px;
+  cursor: pointer;
 }
 .countries__countryCardData {
   display: inline-block;
@@ -302,5 +303,4 @@ p {
 }
 .view {
   padding-top: 100px;
-  background: red;
 }/*# sourceMappingURL=index.css.map */

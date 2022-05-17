@@ -7,11 +7,14 @@ export default class extends AbstractView {
   }
 
   async getHTML() {
-    console.log(this.params.id, "WHY nothing shows up");
-    // return "<h1>Country!!!!</h1>";
     return `
-            <div class="view">
+            <div class="wrapper">
+              <div class="view">
                 <p>This country is ${this.params.id}.</p>
+                <button class="">
+                  <a href="/countries">BACK</a>
+                </button>
+              </div>
             </div>
         `;
   }

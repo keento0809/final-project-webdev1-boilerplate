@@ -7,6 +7,15 @@ export default class extends AbstractView {
   }
 
   async getHTML() {
+    window.addEventListener("DOMContentLoaded", function (e) {
+      const body = document.querySelector("body");
+      const nav = document.querySelector("nav");
+
+      // if (body.classList.contains("darkMode"))
+      //   body.classList.remove("darkMode");
+      // if (nav.classList.contains("darkMode")) nav.classList.remove("darkMode");
+    });
+
     return `<div class="backdrop">
     <div class="homepage">
       <div class="homepage__overlay">

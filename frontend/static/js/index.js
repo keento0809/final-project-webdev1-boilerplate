@@ -2,18 +2,7 @@ import { getCountries } from "./countries.js";
 
 export const countries = getCountries();
 
-// console.log(countries);
-
 export let inputValue = "";
-
-export let updateLoadedData = "aa";
-
-// function testFunc(arr) {
-//   console.log(arr[0]);
-//   return arr;
-// }
-
-// export const resultArr = testFunc(arr);
 
 window.addEventListener("DOMContentLoaded", (event) => {
   console.log("DOM fully loaded and parsed");
@@ -37,8 +26,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
       flagImg: countries[key].flags.png,
     });
   }
-  // console.log(loadedData);
-  // console.log(regions);
 
   // Get DOM
   const body = document.querySelector("body");
@@ -61,22 +48,22 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
     console.log(updateLoadedData);
     // testFunc(updateLoadedData);
-    return updateLoadedData;
+    // return updateLoadedData;
   });
 
   // original code
   regionSelect.addEventListener("change", function (e) {
     const selectedValue = e.target.value;
-    console.log(e.target.value);
 
     updateLoadedData = loadedData.filter((country) => {
       return country.region === selectedValue;
     });
     console.log(updateLoadedData);
-    return updateLoadedData;
   });
 
   function handleToggleMode() {
+    console.log("なぜに動かぬ");
+
     body.classList.toggle("darkMode");
     nav.classList.toggle("darkMode");
     countriesSearchSec.classList.toggle("darkMode");
@@ -85,3 +72,5 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   toggleIcon.addEventListener("click", handleToggleMode);
 });
+
+export let updateLoadedData = "aa";

@@ -1,5 +1,5 @@
 import AbstractView from "./AbstractView.js";
-import { countries, inputValue, updateLoadedData } from "../index.js";
+import { countries, updateLoadedData } from "../index.js";
 
 export default class extends AbstractView {
   constructor(params) {
@@ -8,6 +8,26 @@ export default class extends AbstractView {
   }
 
   async getHTML() {
+    // test
+    const body = document.querySelector("body");
+    const nav = document.querySelector(".nav");
+
+    // window.location = function () {
+    //   console.log("ふひひひ日保ひおほいほほほいほい");
+    // };
+
+    const countriesSearchSec = document.querySelector(
+      ".countries__searchSection"
+    );
+    const countryCards = document.querySelectorAll(".countries__countryCard");
+    const toggleIcon = document.querySelector("#toggleIcon");
+    toggleIcon.addEventListener("click", function (e) {
+      body.classList.add("darkMode");
+      nav.classList.add("darkMode");
+      countriesSearchSec.classList.add("darkMode");
+      countryCards.forEach((card) => card.classList.add("darkMode"));
+    });
+
     const loadedData = [];
     const regions = [];
     const hash = {};
@@ -36,6 +56,8 @@ export default class extends AbstractView {
       `;
     });
 
+    console.log(updateLoadedData);
+
     // display data(original)
     let testLi = loadedData.map((country) => {
       return `<li class=countries__countryCard>
@@ -45,9 +67,13 @@ export default class extends AbstractView {
       <div class="countries__countryName">
       <h3>${country.name}</h3>
       </div>
-      <p><strong>Population:</strong> <span class="countries__countryCardData">${country.population}</span></p>
-      <p><strong>Region:</strong> <span class="countries__countryCardData">${country.region}</span></p>
-      <p><strong>Capital:</strong> <span class="countries__countryCardData">${country.capital}</span></p>
+      <p><strong>Population:</strong> <span class="countries__countryCardData">${country.population.toLocaleString()}</span></p>
+      <p><strong>Region:</strong> <span class="countries__countryCardData">${
+        country.region
+      }</span></p>
+      <p><strong>Capital:</strong> <span class="countries__countryCardData">${
+        country.capital
+      }</span></p>
       </div>
       </a>
         </li>`;
@@ -80,6 +106,11 @@ export default class extends AbstractView {
               <option class='countries__selectOption'>Filter by region</option>
               ${options}
             `;
+
+    window.addEventListener("DOMContentLoaded", function (e) {
+      const toggleIcon = document.querySelector("#toggleIcon");
+      console.log(toggleIcon);
+    });
 
     return `<div class="container">
     <div class="wrapper">
