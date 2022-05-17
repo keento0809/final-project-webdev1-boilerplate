@@ -69,18 +69,13 @@ const router = async () => {
 
 window.addEventListener("popstate", router);
 
-// test
-window.addEventListener("DOMContentLoaded", () => {});
 document.addEventListener("DOMContentLoaded", () => {
-  document.body.addEventListener("click", (e) => {
-    // console.log(e.target);
-    // test
-    // e.preventDefault();
-    if (e.target.matches("[data-link]")) {
-      // original
-      e.preventDefault();
-      navigateTo(e.target.href);
-    }
-  });
+  // test comment out
+  //   document.body.addEventListener("click", (e) => {
+  //     if (e.target.matches("[data-link]")) {
+  //       e.preventDefault();
+  //       navigateTo(e.target.href);
+  //     }
+  //   });
   router();
 });
