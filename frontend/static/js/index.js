@@ -2,7 +2,7 @@ import { getCountries } from "./countries.js";
 
 export const countries = getCountries();
 
-console.log(countries);
+// console.log(countries);
 
 export let inputValue = "";
 
@@ -37,8 +37,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
       flagImg: countries[key].flags.png,
     });
   }
-  console.log(loadedData);
-  console.log(regions);
+  // console.log(loadedData);
+  // console.log(regions);
 
   // Get DOM
   const body = document.querySelector("body");
@@ -53,8 +53,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const regionSelect = document.querySelector(".regionSelect");
 
   // original code
-  searchInput.addEventListener("keypress", function (e) {
+  searchInput.addEventListener("keyup", function (e) {
     inputValue = e.target.value;
+    console.log(inputValue);
     updateLoadedData = loadedData.filter((country) => {
       return country.name.toLowerCase().includes(inputValue);
     });

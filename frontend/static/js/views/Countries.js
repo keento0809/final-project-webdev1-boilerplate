@@ -39,8 +39,8 @@ export default class extends AbstractView {
     // display data(original)
     let testLi = loadedData.map((country) => {
       return `<li class=countries__countryCard>
-      <a href=/countries/${country.cca3}>
-      <img src=${country.flagImg} alt="flag" />
+      <a href=/countries/${country.cca3} data-link>
+      <img src=${country.flagImg} alt="flag"/>
       <div class="countries__countryCardDiv">
       <div class="countries__countryName">
       <h3>${country.name}</h3>
@@ -61,7 +61,7 @@ export default class extends AbstractView {
     const countryList = document.createElement("ul");
     countryList.classList.add("countries__countryList");
     countryList.innerHTML = `aaa`;
-    console.log(countryList);
+    // console.log(countryList);
 
     // create searchInput
     const searchDiv = document.createElement("div");
