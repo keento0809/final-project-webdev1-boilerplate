@@ -103,6 +103,11 @@ p {
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 9px 3px #efefef;
+  transition: transform 0.5s ease;
+  transform: none;
+}
+.countries__countryCard:hover {
+  transform: scale(1.05);
 }
 .countries__countryCard.darkMode {
   background: #222d37;

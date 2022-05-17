@@ -138,6 +138,12 @@ p {
     background: $colorWhite;
     border-radius: 8px;
     box-shadow: $baseBoxShadow;
+    transition: transform 0.5s ease;
+    transform: none;
+
+    &:hover {
+      transform: scale(1.05);
+    }
 
     &.darkMode {
       background: $baseColorDarkMode;
