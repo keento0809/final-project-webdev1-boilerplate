@@ -119,12 +119,42 @@ p {
     padding: $baseInputPadding;
     margin-bottom: 2rem;
     box-shadow: $baseBoxShadow;
+    width: 100%;
+  }
+
+  &__searchInputSec {
+    position: relative;
+    padding-bottom: 1rem;
+  }
+
+  &__searchInputSec::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    background: url("../assets/icons8-search-30.png") no-repeat center center /
+      auto 100%;
+    display: inline-block;
+    position: absolute;
+    top: 25px;
+    left: 25px;
   }
 
   &__searchDropdown {
     padding: $baseInputPadding;
     font-size: 16px;
     box-shadow: $baseBoxShadow;
+    width: 100%;
+
+    &.darkMode {
+      box-shadow: $baseBoxShadowDarkMode;
+    }
+  }
+
+  &__orderSelectDropdown {
+    padding: $baseInputPadding;
+    font-size: 16px;
+    box-shadow: $baseBoxShadow;
+    width: 100%;
 
     &.darkMode {
       box-shadow: $baseBoxShadowDarkMode;
@@ -204,6 +234,11 @@ p {
 }
 
 .countries__searchSection.darkMode {
+  & .countries__searchInputSec::before {
+    background: url("../assets//white-icons8-search.png") no-repeat center
+      center / auto 100%;
+  }
+
   & .countries__searchInput {
     box-shadow: $baseBoxShadowDarkMode;
     background: $baseColorDarkMode;
@@ -215,6 +250,12 @@ p {
   }
 
   & .countries__searchDropdown {
+    box-shadow: $baseBoxShadowDarkMode;
+    background: $baseColorDarkMode;
+    color: $colorCountryCardDarkMode;
+  }
+
+  & .countries__orderSelectDropdown {
     box-shadow: $baseBoxShadowDarkMode;
     background: $baseColorDarkMode;
     color: $colorCountryCardDarkMode;
@@ -249,7 +290,7 @@ p {
   padding: 4rem 2rem;
   letter-spacing: -0.5px;
   border-radius: 8px;
-  background: rgb(255 242 242 / 40%);
+  background: rgb(255 255 255 / 50%);
 
   &__overlayTitle {
     font-size: 28px;
@@ -271,7 +312,8 @@ p {
     padding: 0.6rem 2rem;
     font-weight: bold;
     font-size: 16px;
-    background: #6fffff;
+    // background: #6fffff;
+    background: linear-gradient(#00ffe6, #8c93e3);
     box-shadow: 0 3px 6px #fff;
     transition: all 0.3s ease;
 
@@ -306,6 +348,16 @@ p {
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
+    }
+
+    &__searchDropdown {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    &__orderSelectDropdown {
+      max-width: 400px;
+      margin: 0 auto;
     }
   }
 }
@@ -346,7 +398,7 @@ p {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      justify-content: space-between;
+      // justify-content: space-between;
     }
 
     &__countryCard {
@@ -357,6 +409,22 @@ p {
     &__countryCardDiv h3 {
       padding-bottom: 0;
       min-height: 70px;
+    }
+
+    &__selectSec {
+      display: flex;
+      flex-direction: row;
+      min-width: 480px;
+    }
+
+    &__searchDropdown {
+      max-width: 250px;
+      margin: 0 auto;
+    }
+
+    &__orderSelectDropdown {
+      max-width: 200px;
+      margin: 0 auto;
     }
   }
 

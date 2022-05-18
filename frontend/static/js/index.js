@@ -57,6 +57,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
   ${options}
 `;
 
+  const selectedOrderTag = document.querySelector(".orderSelect");
+  selectedOrderTag.innerHTML = `
+    <option class='' value='all'>Sorted by</option>
+    <option class='' value='alphabetical'>A to Z</option>
+    <option class='' value='population'>Population</option>
+  `;
+
   function mapCountries(data) {
     listing = data.map((country) => {
       return `<li class=countries__countryCard>
@@ -84,12 +91,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
   mapCountries(loadedData);
 
-  const countryCards = document.querySelectorAll(".countries__countryCard");
+  // const countryCards = document.querySelectorAll(".countries__countryCard");
+  let isListUpdated = false;
 
   // original code
   searchInput.addEventListener("keyup", function (e) {
     inputValue = e.target.value;
-    console.log(inputValue);
     updateLoadedData = loadedData.filter((country) => {
       return country.name.toLowerCase().includes(inputValue);
     });
@@ -99,11 +106,28 @@ window.addEventListener("DOMContentLoaded", (event) => {
   // original code
   regionSelect.addEventListener("change", function (e) {
     const selectedValue = e.target.value;
-    if (selectedValue === "all") updateLoadedData = loadedData;
-    else
+    if (selectedValue === "all") {
+      updateLoadedData = loadedData;
+    } else
       updateLoadedData = loadedData.filter((country) => {
         return country.region === selectedValue;
       });
+    mapCountries(updateLoadedData);
+  });
+
+  // original code
+  selectedOrderTag.addEventListener("change", function (e) {
+    const selectedValue = e.target.value;
+    if (selectedValue === "alphabetical")
+      updateLoadedData = loadedData.sort((a, b) => {
+        return a.name < b.name ? -1 : 1;
+      });
+    else if (selectedValue === "population")
+      updateLoadedData = loadedData.sort((a, b) => {
+        return a.population > b.population ? -1 : 1;
+      });
+    else if (selectedValue === "all") updateLoadedData = loadedData;
+
     mapCountries(updateLoadedData);
   });
 
@@ -112,7 +136,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     nav.classList.toggle("darkMode");
     countriesSearchSec.classList.toggle("darkMode");
     countryList.classList.toggle("darkMode");
-    // countryCards.forEach((card) => card.classList.toggle("darkMode"));
   }
 
   toggleIcon.addEventListener("click", handleToggleMode);
