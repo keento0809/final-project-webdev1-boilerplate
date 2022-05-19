@@ -1,11 +1,16 @@
 .country-container {
   display: flex;
+  height: 450px;
   gap: 10%;
+  padding-top: 10%;
 }
 
 .CountryView {
-  padding-top: 100px;
   margin-left: 2%;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 32px;
+  padding-top: 100px;
 }
 
 .button-country {
@@ -23,12 +28,22 @@
 .country-info {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  -moz-column-gap: 10px;
-       column-gap: 10px;
+  -moz-column-gap: 15%;
+       column-gap: 15%;
+  font-size: large;
 }
 
 @media only screen and (max-width: 180px) {
   .country-info {
     grid-template-columns: repeat(1, 1fr);
+    text-align: center;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .CountryView {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 64px;
+    padding-top: 100px;
   }
 }/*# sourceMappingURL=niko.css.map */
