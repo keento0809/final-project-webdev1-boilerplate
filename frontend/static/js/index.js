@@ -1,6 +1,7 @@
 import { getCountries } from "./countries.js";
 
 export const countries = getCountries();
+console.log(countries)
 
 export let inputValue = "";
 
@@ -51,61 +52,61 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const searchInput = document.querySelector(".inputAttribute");
   const regionSelect = document.querySelector(".regionSelect");
 
-  const selectTag = document.querySelector(".regionSelect");
-  selectTag.innerHTML = `
-  <option class='countries__selectOption' value='all'>Filter by region</option>
-  ${options}
-`;
+//   const selectTag = document.querySelector(".regionSelect");
+//   selectTag.innerHTML = `
+//   <option class='countries__selectOption' value='all'>Filter by region</option>
+//   ${options}
+// `;
 
-  function mapCountries(data) {
-    listing = data.map((country) => {
-      return `<li class=countries__countryCard>
-      <a href=/countries/${country.cca3} data-link>
-      <img src=${country.flagImg} alt="flag"/>
-      <div class="countries__countryCardDiv">
-      <div class="countries__countryName">
-      <h3>${country.name}</h3>
-      </div>
-      <p><strong>Population:</strong> <span class="countries__countryCardData">${country.population.toLocaleString()}</span></p>
-      <p><strong>Region:</strong> <span class="countries__countryCardData">${
-        country.region
-      }</span></p>
-      <p><strong>Capital:</strong> <span class="countries__countryCardData">${
-        country.capital
-      }</span></p>
-      </div>
-      </a>
-        </li>`;
-    });
-    if (listing.length === 0)
-      countryList.innerHTML = `<p>No result matched.</p>`;
-    else countryList.innerHTML = listing.join("");
-  }
+  // function mapCountries(data) {
+  //   listing = data.map((country) => {
+  //     return `<li class=countries__countryCard>
+  //     <a href=/countries/${country.cca3} data-link>
+  //     <img src=${country.flagImg} alt="flag"/>
+  //     <div class="countries__countryCardDiv">
+  //     <div class="countries__countryName">
+  //     <h3>${country.name}</h3>
+  //     </div>
+  //     <p><strong>Population:</strong> <span class="countries__countryCardData">${country.population.toLocaleString()}</span></p>
+  //     <p><strong>Region:</strong> <span class="countries__countryCardData">${
+  //       country.region
+  //     }</span></p>
+  //     <p><strong>Capital:</strong> <span class="countries__countryCardData">${
+  //       country.capital
+  //     }</span></p>
+  //     </div>
+  //     </a>
+  //       </li>`;
+  //   });
+  //   if (listing.length === 0)
+  //     countryList.innerHTML = `<p>No result matched.</p>`;
+  //   else countryList.innerHTML = listing.join("");
+  // }
 
-  mapCountries(loadedData);
+  // mapCountries(loadedData);
 
   const countryCards = document.querySelectorAll(".countries__countryCard");
 
   // original code
-  searchInput.addEventListener("keyup", function (e) {
-    inputValue = e.target.value;
-    console.log(inputValue);
-    updateLoadedData = loadedData.filter((country) => {
-      return country.name.toLowerCase().includes(inputValue);
-    });
-    mapCountries(updateLoadedData);
-  });
+  // searchInput.addEventListener("keyup", function (e) {
+  //   inputValue = e.target.value;
+  //   console.log(inputValue);
+  //   updateLoadedData = loadedData.filter((country) => {
+  //     return country.name.toLowerCase().includes(inputValue);
+  //   });
+  //   mapCountries(updateLoadedData);
+  // });
 
   // original code
-  regionSelect.addEventListener("change", function (e) {
-    const selectedValue = e.target.value;
-    if (selectedValue === "all") updateLoadedData = loadedData;
-    else
-      updateLoadedData = loadedData.filter((country) => {
-        return country.region === selectedValue;
-      });
-    mapCountries(updateLoadedData);
-  });
+  // regionSelect.addEventListener("change", function (e) {
+  //   const selectedValue = e.target.value;
+  //   if (selectedValue === "all") updateLoadedData = loadedData;
+  //   else
+  //     updateLoadedData = loadedData.filter((country) => {
+  //       return country.region === selectedValue;
+  //     });
+  //   mapCountries(updateLoadedData);
+  // });
 
   function handleToggleMode() {
     body.classList.toggle("darkMode");
