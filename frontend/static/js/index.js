@@ -90,6 +90,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 
   mapCountries(loadedData);
+  console.log(countryList.innerHTML)
 
   // const countryCards = document.querySelectorAll(".countries__countryCard");
   let isListUpdated = false;
