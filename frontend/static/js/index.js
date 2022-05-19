@@ -97,6 +97,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 
   mapCountries(loadedData);
+  console.log(countryList.innerHTML)
 
   // const countryCards = document.querySelectorAll(".countries__countryCard");
   let isSorted = false;
@@ -154,6 +155,22 @@ window.addEventListener("DOMContentLoaded", (event) => {
     mapCountries(updateLoadedData);
     isSorted = true;
     console.log(updateLoadedData);
+  });
+
+  // original code
+  selectedOrderTag.addEventListener("change", function (e) {
+    const selectedValue = e.target.value;
+    if (selectedValue === "alphabetical")
+      updateLoadedData = loadedData.sort((a, b) => {
+        return a.name < b.name ? -1 : 1;
+      });
+    else if (selectedValue === "population")
+      updateLoadedData = loadedData.sort((a, b) => {
+        return a.population > b.population ? -1 : 1;
+      });
+    else if (selectedValue === "all") updateLoadedData = loadedData;
+
+    mapCountries(updateLoadedData);
   });
 
   function handleToggleMode() {
