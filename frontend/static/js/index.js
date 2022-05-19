@@ -1,7 +1,6 @@
 import { getCountries } from "./countries.js";
 
 export const countries = getCountries();
-console.log(countries)
 
 export let inputValue = "";
 
@@ -52,68 +51,91 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const searchInput = document.querySelector(".inputAttribute");
   const regionSelect = document.querySelector(".regionSelect");
 
-//   const selectTag = document.querySelector(".regionSelect");
-//   selectTag.innerHTML = `
-//   <option class='countries__selectOption' value='all'>Filter by region</option>
-//   ${options}
-// `;
+  const selectTag = document.querySelector(".regionSelect");
+  selectTag.innerHTML = `
+  <option class='countries__selectOption' value='all'>Filter by region</option>
+  ${options}
+`;
 
-  // function mapCountries(data) {
-  //   listing = data.map((country) => {
-  //     return `<li class=countries__countryCard>
-  //     <a href=/countries/${country.cca3} data-link>
-  //     <img src=${country.flagImg} alt="flag"/>
-  //     <div class="countries__countryCardDiv">
-  //     <div class="countries__countryName">
-  //     <h3>${country.name}</h3>
-  //     </div>
-  //     <p><strong>Population:</strong> <span class="countries__countryCardData">${country.population.toLocaleString()}</span></p>
-  //     <p><strong>Region:</strong> <span class="countries__countryCardData">${
-  //       country.region
-  //     }</span></p>
-  //     <p><strong>Capital:</strong> <span class="countries__countryCardData">${
-  //       country.capital
-  //     }</span></p>
-  //     </div>
-  //     </a>
-  //       </li>`;
-  //   });
-  //   if (listing.length === 0)
-  //     countryList.innerHTML = `<p>No result matched.</p>`;
-  //   else countryList.innerHTML = listing.join("");
-  // }
+  const selectedOrderTag = document.querySelector(".orderSelect");
+  selectedOrderTag.innerHTML = `
+    <option class='' value='all'>Sorted by</option>
+    <option class='' value='alphabetical'>A to Z</option>
+    <option class='' value='population'>Population</option>
+  `;
 
-  // mapCountries(loadedData);
+  function mapCountries(data) {
+    listing = data.map((country) => {
+      return `<li class=countries__countryCard>
+      <a href=/countries/${country.cca3} data-link>
+      <img src=${country.flagImg} alt="flag"/>
+      <div class="countries__countryCardDiv">
+      <div class="countries__countryName">
+      <h3>${country.name}</h3>
+      </div>
+      <p><strong>Population:</strong> <span class="countries__countryCardData">${country.population.toLocaleString()}</span></p>
+      <p><strong>Region:</strong> <span class="countries__countryCardData">${
+        country.region
+      }</span></p>
+      <p><strong>Capital:</strong> <span class="countries__countryCardData">${
+        country.capital
+      }</span></p>
+      </div>
+      </a>
+        </li>`;
+    });
+    if (listing.length === 0)
+      countryList.innerHTML = `<p>No result matched.</p>`;
+    else countryList.innerHTML = listing.join("");
+  }
 
-  const countryCards = document.querySelectorAll(".countries__countryCard");
+  mapCountries(loadedData);
 
-  // original code
-  // searchInput.addEventListener("keyup", function (e) {
-  //   inputValue = e.target.value;
-  //   console.log(inputValue);
-  //   updateLoadedData = loadedData.filter((country) => {
-  //     return country.name.toLowerCase().includes(inputValue);
-  //   });
-  //   mapCountries(updateLoadedData);
-  // });
+  // const countryCards = document.querySelectorAll(".countries__countryCard");
+  let isListUpdated = false;
 
   // original code
-  // regionSelect.addEventListener("change", function (e) {
-  //   const selectedValue = e.target.value;
-  //   if (selectedValue === "all") updateLoadedData = loadedData;
-  //   else
-  //     updateLoadedData = loadedData.filter((country) => {
-  //       return country.region === selectedValue;
-  //     });
-  //   mapCountries(updateLoadedData);
-  // });
+  searchInput.addEventListener("keyup", function (e) {
+    inputValue = e.target.value;
+    updateLoadedData = loadedData.filter((country) => {
+      return country.name.toLowerCase().includes(inputValue);
+    });
+    mapCountries(updateLoadedData);
+  });
+
+  // original code
+  regionSelect.addEventListener("change", function (e) {
+    const selectedValue = e.target.value;
+    if (selectedValue === "all") {
+      updateLoadedData = loadedData;
+    } else
+      updateLoadedData = loadedData.filter((country) => {
+        return country.region === selectedValue;
+      });
+    mapCountries(updateLoadedData);
+  });
+
+  // original code
+  selectedOrderTag.addEventListener("change", function (e) {
+    const selectedValue = e.target.value;
+    if (selectedValue === "alphabetical")
+      updateLoadedData = loadedData.sort((a, b) => {
+        return a.name < b.name ? -1 : 1;
+      });
+    else if (selectedValue === "population")
+      updateLoadedData = loadedData.sort((a, b) => {
+        return a.population > b.population ? -1 : 1;
+      });
+    else if (selectedValue === "all") updateLoadedData = loadedData;
+
+    mapCountries(updateLoadedData);
+  });
 
   function handleToggleMode() {
     body.classList.toggle("darkMode");
     nav.classList.toggle("darkMode");
     countriesSearchSec.classList.toggle("darkMode");
     countryList.classList.toggle("darkMode");
-    // countryCards.forEach((card) => card.classList.toggle("darkMode"));
   }
 
   toggleIcon.addEventListener("click", handleToggleMode);
