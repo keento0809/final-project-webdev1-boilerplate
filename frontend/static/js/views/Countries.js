@@ -10,7 +10,7 @@ export default class extends AbstractView {
   async getHTML() {
     const regions = [];
 
-    console.log("check")
+    console.log("check");
 
     const options = regions.map((region) => {
       return `
@@ -38,11 +38,25 @@ export default class extends AbstractView {
     selectTagDiv.append(selectTag);
     selectTag.classList.add("regionSelect", "countries__searchDropdown");
 
+    // create selectOrder tag
+    const selectOrderDiv = document.createElement("div");
+    const selectOrderTag = document.createElement("select");
+    selectOrderDiv.append(selectOrderTag);
+    selectOrderTag.classList.add(
+      "orderSelect",
+      "countries__orderSelectDropdown"
+    );
+
     return `<div class="container">
     <div class="wrapper">
     <section class="countries__searchSection">
+    <div class="countries__searchInputSec">
     ${searchDiv.innerHTML}
+    </div>
+    <div class="countries__selectSec">
+    ${selectOrderDiv.innerHTML}
     ${selectTagDiv.innerHTML}
+    </div>
     </section>
     <section class="countries__countryListSection">
     </section>
