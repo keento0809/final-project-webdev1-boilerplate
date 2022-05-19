@@ -10,6 +10,8 @@ export default class extends AbstractView {
   async getHTML() {
     const regions = [];
 
+    console.log("check");
+
     const options = regions.map((region) => {
       return `
         <option class='countries__selectOption' value=${region}>

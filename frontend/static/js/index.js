@@ -51,6 +51,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
   const searchInput = document.querySelector(".inputAttribute");
   const regionSelect = document.querySelector(".regionSelect");
 
+  const homepage = document.querySelector(".homepage");
+  console.log(homepage);
+
+  setTimeout(() => {
+    homepage.classList.add("animate");
+  }, 500);
+
   const selectTag = document.querySelector(".regionSelect");
   selectTag.innerHTML = `
   <option class='countries__selectOption' value='all'>Filter by region</option>
@@ -92,43 +99,61 @@ window.addEventListener("DOMContentLoaded", (event) => {
   mapCountries(loadedData);
 
   // const countryCards = document.querySelectorAll(".countries__countryCard");
-  let isListUpdated = false;
+  let isSorted = false;
+  let isRegionSorted = false;
+  let searchData = isSorted ? updateLoadedData : loadedData;
+  // console.log(searchData);
 
   // original code
   searchInput.addEventListener("keyup", function (e) {
     inputValue = e.target.value;
+    // original
     updateLoadedData = loadedData.filter((country) => {
       return country.name.toLowerCase().includes(inputValue);
     });
     mapCountries(updateLoadedData);
+    console.log(updateLoadedData);
   });
 
   // original code
   regionSelect.addEventListener("change", function (e) {
     const selectedValue = e.target.value;
+    // test
     if (selectedValue === "all") {
       updateLoadedData = loadedData;
-    } else
+    }
+    // original code
+    else
       updateLoadedData = loadedData.filter((country) => {
         return country.region === selectedValue;
       });
     mapCountries(updateLoadedData);
+    isRegionSorted = true;
+    console.log(updateLoadedData);
   });
 
   // original code
   selectedOrderTag.addEventListener("change", function (e) {
     const selectedValue = e.target.value;
+    let selectedData =
+      updateLoadedData === undefined ? loadedData : updateLoadedData;
     if (selectedValue === "alphabetical")
-      updateLoadedData = loadedData.sort((a, b) => {
+      // test
+      // updateLoadedData = loadedData.sort((a, b) => {
+      updateLoadedData = selectedData.sort((a, b) => {
         return a.name < b.name ? -1 : 1;
       });
     else if (selectedValue === "population")
-      updateLoadedData = loadedData.sort((a, b) => {
+      // test
+      // updateLoadedData = loadedData.sort((a, b) => {
+      updateLoadedData = selectedData.sort((a, b) => {
         return a.population > b.population ? -1 : 1;
       });
     else if (selectedValue === "all") updateLoadedData = loadedData;
 
     mapCountries(updateLoadedData);
+    isSorted = true;
+    console.log(updateLoadedData);
   });
 
   function handleToggleMode() {

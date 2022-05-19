@@ -118,6 +118,7 @@ p {
   font-size: 16px;
   box-shadow: 0 2px 9px 3px #efefef;
   width: 100%;
+  margin-bottom: 1rem;
 }
 .countries__orderSelectDropdown.darkMode {
   box-shadow: 0 2px 9px 3px #161e27;
@@ -232,6 +233,7 @@ p {
   letter-spacing: -0.5px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
 }
 .homepage__overlayTitle {
   font-size: 28px;
@@ -289,6 +291,7 @@ p {
   .countries__orderSelectDropdown {
     max-width: 400px;
     margin: 0 auto;
+    margin-bottom: 1rem;
   }
 }
 @media screen and (min-width: 1300px) {
@@ -338,11 +341,10 @@ p {
   }
   .countries__searchDropdown {
     max-width: 250px;
-    margin: 0 auto;
   }
   .countries__orderSelectDropdown {
     max-width: 200px;
-    margin: 0 auto;
+    margin-bottom: 0;
   }
 
   .backdrop {
@@ -368,4 +370,41 @@ p {
 .view {
   padding-top: 100px;
   background: red;
+}
+
+.animate {
+  -webkit-animation: animating;
+          animation: animating;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+@-webkit-keyframes animating {
+  0% {
+    transform: translateY(10%);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes animating {
+  0% {
+    transform: translateY(10%);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+  }
 }/*# sourceMappingURL=index.css.map */
