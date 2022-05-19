@@ -12,7 +12,7 @@ export default class extends AbstractView {
               <div class="CountryView">
                 <a class="button-country" href="/countries"><ion-icon name="arrow-back-outline"></ion-icon> Back</a>
                 <div class="country-container">
-                  <img src="https://flagcdn.com/w320/uy.png">
+                  <img src="https://flagcdn.com/w320/au.png">
                   <div class="country-info">
                     <div class="name">
                       <h2>Australia</h2>
