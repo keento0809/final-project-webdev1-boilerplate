@@ -1,6 +1,7 @@
 import { getCountries } from "./countries.js";
 
 export const countries = getCountries();
+console.log(countries[0]);
 
 export let inputValue = "";
 
